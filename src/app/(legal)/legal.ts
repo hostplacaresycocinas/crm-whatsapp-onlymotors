@@ -2,6 +2,6 @@
 export const LEGAL = {
   company: 'Agencia Grvity',
   app: 'CRM Only Motors',
-  email: 'tobyajras@gmail.com',
+  email: 'onlymotorsok@gmail.com',
   updated: '23 de octubre de 2026',
 };
