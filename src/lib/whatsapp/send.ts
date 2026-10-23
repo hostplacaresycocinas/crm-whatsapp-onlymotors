@@ -1,6 +1,5 @@
 import 'server-only';
-
-export const GRAPH_VERSION = 'v23.0';
+import { GRAPH_VERSION } from '@/lib/meta/graph';
 
 // Mensaje de texto libre. Gratis, pero solo dentro de las 24 h desde el último mensaje del cliente.
 export async function sendText(phoneNumberId: string, accessToken: string, to: string, body: string) {

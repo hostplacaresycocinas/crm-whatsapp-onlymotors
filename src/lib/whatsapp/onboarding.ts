@@ -1,22 +1,5 @@
 import 'server-only';
-import { GRAPH_VERSION } from './send';
-
-const GRAPH = `https://graph.facebook.com/${GRAPH_VERSION}`;
-
-async function graph<T>(path: string, init: RequestInit & { token?: string } = {}) {
-  const { token, ...rest } = init;
-  const res = await fetch(`${GRAPH}${path}`, {
-    ...rest,
-    headers: {
-      'Content-Type': 'application/json',
-      ...(token ? { Authorization: `Bearer ${token}` } : {}),
-      ...rest.headers,
-    },
-  });
-  const data = await res.json();
-  if (!res.ok) throw new Error(data.error?.message ?? `Error de Meta en ${path}`);
-  return data as T;
-}
+import { graph } from '@/lib/meta/graph';
 
 // El code del Embedded Signup vence a los 30 s: canjearlo apenas llega.
 export async function exchangeCode(code: string) {

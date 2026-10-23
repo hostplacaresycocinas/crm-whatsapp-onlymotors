@@ -62,7 +62,14 @@ Copiar `.env.example` a `.env.local` y completar. Las mismas van en Vercel.
 - En la app se desactivan mensajes temporales, ver una vez, ubicación en tiempo real y listas de difusión nuevas; se desvinculan los dispositivos (WhatsApp para Windows no se puede volver a vincular).
 - Para desconectar: en la app, Configuración → Cuenta → Plataforma comercial → Desconectar. Llega un `account_update` y el número queda `disconnected` en `whatsapp_accounts`.
 
-### 4. Correr
+### 4. Catálogo de autos (opcional)
+1. Commerce Manager → Crear catálogo → tipo **Comercio electrónico** (WhatsApp no acepta el tipo Vehículos). Copiar el identificador.
+2. Configuración del negocio → Usuarios del sistema → generar token para la app con `catalog_management` y `business_management` → `META_SYSTEM_USER_TOKEN`.
+3. En el CRM: **Catálogo** → pegar el identificador. Cada auto que se guarda se publica (precio y al menos una foto https son obligatorios).
+4. Conectar el catálogo al número: WhatsApp Manager → Catálogo.
+5. El sitio web lee el stock desde `GET /api/public/vehicles?tenant=<id>` (sin vendidos, CORS abierto). La ficha pública de cada auto es `/autos/<id>`.
+
+### 5. Correr
 ```bash
 npm run dev
 ```

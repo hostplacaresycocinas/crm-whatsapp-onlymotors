@@ -30,6 +30,6 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  // Sin sesión: el webhook de Meta, las páginas legales que lee Meta y /preview (diseño con datos de ejemplo, 404 en producción).
-  matcher: ['/((?!preview|privacidad|eliminacion-datos|api/whatsapp|_next/static|_next/image|favicon.ico).*)'],
+  // Sin sesión: el webhook de Meta, las páginas legales que lee Meta, el stock público (/autos, /api/public) y /preview (diseño con datos de ejemplo, 404 en producción).
+  matcher: ['/((?!preview|privacidad|eliminacion-datos|autos|api/public|api/whatsapp|_next/static|_next/image|favicon.ico).*)'],
 };
