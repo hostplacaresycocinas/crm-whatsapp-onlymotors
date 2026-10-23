@@ -3,13 +3,14 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion } from 'motion/react';
-import { Columns3, LayoutGrid, LogOut, MessageCircle } from 'lucide-react';
+import { Columns3, LayoutGrid, LogOut, MessageCircle, Smartphone } from 'lucide-react';
 import { signOut } from '@/app/login/actions';
 
 const NAV = [
   { href: '/', label: 'Panel', icon: LayoutGrid },
   { href: '/inbox', label: 'Conversaciones', icon: MessageCircle },
   { href: '/pipeline', label: 'Pipeline', icon: Columns3 },
+  { href: '/connect', label: 'WhatsApp', icon: Smartphone },
 ];
 
 function isActive(pathname: string, href: string) {

@@ -57,6 +57,9 @@ export async function sendMessage(contactId: string, body: string) {
     .from('whatsapp_accounts')
     .select('phone_number_id, access_token')
     .eq('tenant_id', contact.tenant_id)
+    .eq('status', 'connected')
+    .not('access_token', 'is', null)
+    .order('connected_at', { ascending: false, nullsFirst: false })
     .limit(1)
     .single();
 

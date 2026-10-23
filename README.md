@@ -55,6 +55,7 @@ Copiar `.env.example` a `.env.local` y completar. Las mismas van en Vercel.
 
 #### Coexistencia (número real que se sigue usando en la app WhatsApp Business)
 - **No** agregar el número desde el panel de la app ("Agregar número de teléfono" / "Configuración de producción") ni con herramientas que lo registren (`register_phone_number`, etc.): eso lo pasa a solo-API y se pierde el historial de la app.
+- En el CRM: **/connect** → "Conectar mi WhatsApp Business". Usa la configuración de Inicio de sesión con Facebook para empresas creada desde la plantilla "registro insertado de WhatsApp con token de 60 días" (`NEXT_PUBLIC_META_ES_CONFIG_ID`). El dominio tiene que estar en *Allowed domains* y *Valid OAuth redirect URIs* de esa configuración, con HTTPS (no anda en localhost).
 - La coexistencia se hace **solo por Embedded Signup** (v4+, `featureType: "whatsapp_business_app_onboarding"`; en v5 viene activo). La v2 y v3 quedaron deprecadas el 15/10/2026.
 - Requiere ser **Tech Provider**, también para tu propio número: verificación del negocio + **App Review** (`whatsapp_business_messaging`, `whatsapp_business_management`) + verificación de acceso.
 - Celular con WhatsApp Business ≥ 2.24.17. Después del onboarding hay **24 h** para pedir una sola vez la sincronización de contactos e historial (`POST /<PHONE_NUMBER_ID>/smb_app_data` con `sync_type` = `smb_app_state_sync` y `history`). Trae 180 días, sin grupos. Dejar la app abierta mientras sincroniza.
@@ -67,8 +68,9 @@ npm run dev
 ```
 
 ## Pendiente / próximos pasos
-- Embedded Signup v4 con coexistencia dentro del CRM (hoy el número se carga a mano en `whatsapp_accounts`), incluyendo la llamada a `smb_app_data` dentro de las 24 h
-- Avisar en la UI cuando un número queda `disconnected`
+- Renovar el token del Embedded Signup antes de que venza (hoy solo se avisa en `/connect`)
+- Reintentar `smb_app_data` desde la UI si falló al conectar
+- Avisar en la bandeja cuando un número queda `disconnected`
 - Multimedia: hoy solo se guarda el `media_id`, no el archivo
 - Sugerencias de mensajes con IA
 - Más de un número por tenant
