@@ -38,9 +38,25 @@ Tiene que verse **el CRM enviando** y **WhatsApp recibiendo**. Lo más simple: W
 | 4 | Lista | Recargar y mostrar la plantilla en la lista con su estado |
 | 5 | (Opcional) WhatsApp Manager | Mostrar la misma plantilla en business.facebook.com → WhatsApp Manager → Plantillas |
 
+## 2b. Video `catalog_management` (≈ 1 min, si se suma al review)
+
+Antes: catálogo de **Comercio electrónico** creado en Commerce Manager, su identificador pegado en **Catálogo** y `META_SYSTEM_USER_TOKEN` cargado en Vercel.
+
+| # | Qué mostrar | Qué hacer |
+|---|---|---|
+| 1 | CRM → Catálogo | Mostrar el catálogo configurado |
+| 2 | Nuevo auto | Cargar marca, modelo, año, km, precio y una foto (URL https) → **Guardar y publicar** |
+| 3 | Lista | Mostrar la tarjeta con "Publicado en WhatsApp" |
+| 4 | Commerce Manager | Recargar el catálogo y mostrar el mismo producto |
+| 5 | Importar | Crear un producto a mano en Commerce Manager, tocar **Importar del catálogo** en el CRM y mostrar que aparece |
+
 ---
 
 ## 3. Uso permitido (pegar en cada permiso)
+
+### catalog_management
+
+> Car dealerships use CRM Only Motors to manage their vehicle stock. We use catalog_management to read the products of the business's own Meta commerce catalog and to create, update and remove products (one per vehicle: title, price, photos, availability) when the dealer edits its stock in the CRM. The catalog is connected to the business's WhatsApp Business account so customers can browse the cars on WhatsApp. We only access catalogs that belong to the business using the CRM.
 
 ### whatsapp_business_messaging
 
